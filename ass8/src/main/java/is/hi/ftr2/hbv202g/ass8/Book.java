@@ -8,7 +8,7 @@ public class Book {
 
     public Book(String title,  List<Author> authors) throws EmptyAuthorListException{
         if (authors.size() == 0) {
-            throw new EmptyAuthorListException("Authors cannot be null");
+            throw new EmptyAuthorListException("'Authors' field cannot be empty");
         }
         this.title = title;
         this.authors = authors;
