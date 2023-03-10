@@ -4,25 +4,26 @@ import java.util.List;
 import java.time.LocalDate;
 
 public class LibrarySystem {
+    private List<User> users;
+    private List<Book> books;
+    private List<Lending> lendings;
+    
     private String title;
     private List<Author> authors;
     private String name; 
     private boolean feePaid;
     private String department;
-    private User user;
-    private Book book;
-    private FacultyMember facultyMember;
     private LocalDate dueDate;
 
     public LibrarySystem() {
+        this.users = new ArrayList<>(); // wrong
+        this.books = new ArrayList<>(); // wrong
+        this.lendings = new ArrayList<>(); // wrong
         this.title = "";
-        this.authors = null;
+        this.authors = new ArrayList<>(); // wrong
         this.name = "";
         this.feePaid = false;
         this.department = "";
-        this.user = null;
-        this.book = null;
-        this.facultyMember = null;
         this.dueDate = null;
     }
 
