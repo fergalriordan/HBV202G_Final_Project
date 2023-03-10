@@ -1,12 +1,15 @@
 package is.hi.ftr2.hbv202g.ass8;
 
-import java.util.*;
+import java.util.List;
 
 public class Book {
     private String title;
     public List<Author> authors;
 
-    public Book(String title,  List<Author> authors) {
+    public Book(String title,  List<Author> authors) throws EmptyAuthorListException{
+        if (authors.size() == 0) {
+            throw new EmptyAuthorListException("Authors cannot be null");
+        }
         this.title = title;
         this.authors = authors;
     }
@@ -19,15 +22,11 @@ public class Book {
         return authors;
     }
 
-    public void setAuthors(List<Author> authors) {
-        try {
-            if (authors == null) {
-                throw new EmptyAuthorListException("Authors cannot be null");
-            }
-            else this.authors = authors;
-        } catch (EmptyAuthorListException e) {
-            System.out.println(e.getMessage());
+    public void setAuthors(List<Author> authors) throws EmptyAuthorListException {
+        if (authors.size() == 0) {
+            throw new EmptyAuthorListException("Authors cannot be null");
         }
+        this.authors = authors;
     }
 
     public String getTitle() {
