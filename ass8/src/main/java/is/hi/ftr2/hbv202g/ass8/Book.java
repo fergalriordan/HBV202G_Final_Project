@@ -20,10 +20,14 @@ public class Book {
     }
 
     public void setAuthors(List<Author> authors) {
-        if (authors == null) {
-            throw new IllegalStateException("Authors cannot be null");
+        try {
+            if (authors == null) {
+                throw new EmptyAuthorListException("Authors cannot be null");
+            }
+            else this.authors = authors;
+        } catch (EmptyAuthorListException e) {
+            System.out.println(e.getMessage());
         }
-        else this.authors = authors;
     }
 
     public String getTitle() {
