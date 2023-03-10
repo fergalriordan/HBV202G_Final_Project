@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Book {
     private String title;
-    public List<Author> authors;
+    private List<Author> authors;
 
     public Book(String title,  List<Author> authors) throws EmptyAuthorListException{
         if (authors.size() == 0) {

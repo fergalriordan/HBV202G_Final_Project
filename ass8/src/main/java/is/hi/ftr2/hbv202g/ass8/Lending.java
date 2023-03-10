@@ -4,12 +4,13 @@ import java.time.LocalDate;
 
 public class Lending {
     private LocalDate dueDate;
-    public Book book; 
-    public User user;
+    private Book book; 
+    private User user;
 
     public Lending(Book book, User user) {
         this.book = book;
         this.user = user;
+        // set dueDate to 30 days from now
     }
 
     public LocalDate getDueDate() {
