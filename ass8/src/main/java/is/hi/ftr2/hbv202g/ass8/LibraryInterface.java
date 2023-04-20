@@ -8,12 +8,12 @@ public class LibraryInterface
     public static void main( String[] args )
     {
         System.out.println( "******************************************************" );
-        System.out.println( "       HASKOLI ISLANDS ONLINE LIBRARY");
+        System.out.println( "       HASKOLI ISLANDS LIBRARY SYSTEM\n");
 
-        System.out.println("\nSelect an option.");
+        System.out.println("Select an option.");
         System.out.println("    1. Admin Mode.");
         System.out.println("    2. User Mode.\n");
-        System.out.print("\nEnter your choice: ");
+        System.out.print("Enter your choice: ");
     
         int choice = Integer.parseInt( System.console().readLine() );
         switch( choice )

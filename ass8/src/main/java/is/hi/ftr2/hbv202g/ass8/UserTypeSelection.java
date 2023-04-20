@@ -1,9 +1,11 @@
 package is.hi.ftr2.hbv202g.ass8;
 
+import java.util.Scanner;
+
 public class UserTypeSelection {
     public static void main(String[] args) {
-        System.out.println("\n  Welcome, User!\n");
-        System.out.println("\nSelect an option:");
+        System.out.println("\nWelcome to the Haskoli Islands Digital Library System!\n");
+        System.out.println("Select an option:");
             System.out.println("    1. Faculty");
             System.out.println("    2. Student");
             System.out.print("\nEnter your choice: ");
@@ -35,12 +37,27 @@ public class UserTypeSelection {
 
 
     public static Boolean checkFaculty(){
-        // code to check faculty credentials (name + password) goes here
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Username: ");
+        String username = scanner.nextLine();
+        System.out.print("Password: ");
+        String password = scanner.nextLine();
+        // check if username and password are valid...
+
         return true;
     }
 
     public static Boolean checkStudent(){
-        // code to check student credentials (name + password + feePaid) goes here
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Username: ");
+        String username = scanner.nextLine();
+        System.out.print("Password: ");
+        String password = scanner.nextLine();
+
+        // check if username and password are valid...
+
+        // ALSO CHECK IF FEES HAVE BEEN PAID
+        
         return true;
     }
 }

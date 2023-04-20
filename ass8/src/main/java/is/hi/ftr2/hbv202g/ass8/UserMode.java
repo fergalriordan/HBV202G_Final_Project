@@ -22,6 +22,7 @@ public class UserMode {
                     requestExtension();
                     break;
                 case 4:
+                    System.out.println("\n******************************************************\n");
                     return;
                 default:
                     System.out.println("Invalid choice!");
@@ -30,15 +31,15 @@ public class UserMode {
     }
 
     public static void newLending() {
-        
+        System.out.println("Service not yet implemented.");  
     }
 
     public static void returnLending() {
-
+        System.out.println("Service not yet implemented.");  
     }
 
     public static void requestExtension() { 
-
+        System.out.println("Service not yet implemented.");  
     }
 }
 
