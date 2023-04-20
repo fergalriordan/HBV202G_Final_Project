@@ -8,9 +8,7 @@ public class LibraryInterface
     public static void main( String[] args )
     {
         System.out.println( "Enter 1 for admin, 2 for user:" );
-        // read in choice from user
         int choice = Integer.parseInt( System.console().readLine() );
-        // switch on choice
         switch( choice )
         {
             case 1:
@@ -22,6 +20,6 @@ public class LibraryInterface
             default:
                 System.out.println( "Invalid choice" );
                 break;
-        }
+        } 
     }
 }
