@@ -42,9 +42,12 @@ public class UserTypeSelection {
         String username = scanner.nextLine();
         System.out.print("Password: ");
         String password = scanner.nextLine();
-        // check if username and password are valid...
 
-        return true;
+        // check if username and password are valid...
+        if (username == null || password == null) // placeholder (doesn't work)
+            return false;
+
+        else return true;
     }
 
     public static Boolean checkStudent(){
@@ -55,9 +58,13 @@ public class UserTypeSelection {
         String password = scanner.nextLine();
 
         // check if username and password are valid...
+        if (username == null || password == null) // placeholder (doesn't work)
+            return false;
 
         // ALSO CHECK IF FEES HAVE BEEN PAID
+        // if (student.feePaid == false)
+        //     return false;
         
-        return true;
+        else return true;
     }
 }
