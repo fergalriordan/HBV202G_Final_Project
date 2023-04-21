@@ -1,7 +1,5 @@
 package is.hi.ftr2.hbv202g.ass8;
 
-import java.util.Scanner;
-
 public class UserTypeSelection {
     public static void main(String[] args, LibrarySystem system) {
         System.out.println("\nWelcome to the Haskoli Islands Digital Library System!\n");

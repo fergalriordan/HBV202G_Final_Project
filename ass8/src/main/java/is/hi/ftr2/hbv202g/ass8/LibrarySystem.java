@@ -5,12 +5,12 @@ import java.time.LocalDate;
 
 public class LibrarySystem {
     private List<User> users;
-    private List<Book> books;
+    private List<BookComponent> books;
     private List<Lending> lendings;
 
     public LibrarySystem() {
         this.users = new ArrayList<User>();
-        this.books = new ArrayList<Book>(); 
+        this.books = new ArrayList<BookComponent>(); 
         this.lendings = new ArrayList<Lending>();
     }
 
@@ -90,17 +90,13 @@ public class LibrarySystem {
         this.users.add(new FacultyMember(name, department));
     }
 
-    public Book findBookByTitle(String title) throws UserOrBookDoesNotExistException {
-        Book found = null;
-        for (Book book : this.books) {
-            if (book.getTitle().equals(title)) {
-                found = book;
+    public BookComponent findBookByTitle(String title) throws UserOrBookDoesNotExistException {
+        for (BookComponent component : this.books) {
+            if (component.getTitle().equals(title)) {
+                return component;
             }
         }
-        if (found == null) {
-            throw new UserOrBookDoesNotExistException("Book with title '" + title + "' does not exist");
-        }
-        return found;
+        throw new UserOrBookDoesNotExistException("Book with title '" + title + "' does not exist");
     }
 
     public User findUserByName(String name) throws UserOrBookDoesNotExistException {

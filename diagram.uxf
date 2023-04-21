@@ -1,0 +1,107 @@
+<diagram program="umletino" version="15.1"><zoom_level>7</zoom_level><element><id>UMLClass</id><coordinates><x>763</x><y>189</y><w>350</w><h>182</h></coordinates><panel_attributes>Library System
+--
+/+LibrarySystem(): ctor/
+/+adminAddBook(): void/
+/+addOmnibus(): void/
+/+editComponent(): void/
+/+removeComponent(): void/
+/+findUser(): void/
+/+addStudentUser(String user, boolean feePaid): void/
+/+addFacultyMemberUser(String name, String department): void/
+/+findBookByTitle(String title): Book/
+/+checkFaculty(): Boolean/
+/+checkStudent(): Boolean/
+/+checkPassword(User user, String password): Boolean/
+/+borrowBook(User user, Book book): void/
+/+returnBook(User user, Book book): void/
+/+extendLending(FacultyMember facultyMember, Book book, LocalDate newDueDate): void/</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>924</x><y>364</y><w>91</w><h>126</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+lendings
+0...n</panel_attributes><additional_attributes>110;160;110;80;10;80;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>826</x><y>476</y><w>224</w><h>105</h></coordinates><panel_attributes>Lending
+--
+/- dueDate: java.time.LocalDate/
+--
++Lending(Book book, User user): ctor
++getDueDate(): LocalDate
++setDueDate(LocalDate dueDate): void
++getBook(): Book
++setBook(Book book): void
++getUser(): User
++setUser(User user):void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1099</x><y>476</y><w>224</w><h>105</h></coordinates><panel_attributes>User {abstract}
+--
+/- name: String/
+--
++User(String name): ctor
++getName(): String
++setName(String name): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1057</x><y>364</y><w>168</w><h>126</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+users
+0..n</panel_attributes><additional_attributes>220;160;220;80;10;80;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1232</x><y>623</y><w>224</w><h>105</h></coordinates><panel_attributes>FacultyMember
+--
+/- department: String/
+--
++FacultyMember(String name, String department): ctor
++getDepartment(): String
++setDepartment(String department): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1260</x><y>574</y><w>98</w><h>63</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;40;120;40;120;70</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1001</x><y>623</y><w>224</w><h>105</h></coordinates><panel_attributes>Student
+--
+/- feePaid: Boolean/
+--
++Student(String name, boolean feePaid): ctor
++isFeePaid(): boolean
++setFeePaid(boolean feePaid): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1099</x><y>574</y><w>77</w><h>63</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>90;10;90;40;10;40;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>651</x><y>364</y><w>182</w><h>126</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+books
+0...n</panel_attributes><additional_attributes>10;160;10;80;240;80;240;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>546</x><y>476</y><w>224</w><h>49</h></coordinates><panel_attributes>BookComponent
+--
++displayInfo(): void
++getTitle(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>651</x><y>623</y><w>224</w><h>98</h></coordinates><panel_attributes>BookComposite
+--
+- title: String
+--
++ BookComposite(String title): ctor
++ add(BookComponent bookComponent): void
++ remove(BookComponent bookComponent): void
++ getChildren(): List&lt;BookComponent&gt;
++ getTitle(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>651</x><y>770</y><w>224</w><h>42</h></coordinates><panel_attributes>Omnibus
+--
++ Omnibus(String title): ctor</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>399</x><y>623</y><w>224</w><h>98</h></coordinates><panel_attributes>Book
+--
+- tile: String
+--
++ Book(String title, List&lt;Author&gt; authors): ctor
++ getAuthors: List&lt;Author&gt;
++ setAuthors(List&lt;Author&gt; authors): void
++ addAuthor(Author author): void
++ getTitle(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>651</x><y>518</y><w>126</w><h>119</h></coordinates><panel_attributes>lt=&lt;&lt;.
+children
+0...n</panel_attributes><additional_attributes>10;10;10;70;160;70;160;150</additional_attributes></element><element><id>Relation</id><coordinates><x>1218</x><y>567</y><w>133</w><h>21</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;20;109;19;170;20</additional_attributes></element><element><id>Relation</id><coordinates><x>749</x><y>714</y><w>21</w><h>70</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>504</x><y>518</y><w>168</w><h>119</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>220;10;220;70;10;70;10;150</additional_attributes></element><element><id>UMLClass</id><coordinates><x>399</x><y>770</y><w>224</w><h>70</h></coordinates><panel_attributes>Author
+--
+- name: String
+--
++ Author(String name): ctor
++ getName(): String
++ setName(String name): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>504</x><y>714</y><w>49</w><h>70</h></coordinates><panel_attributes>lt=&lt;-
+authors
+0...n</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>238</x><y>455</y><w>245</w><h>35</h></coordinates><panel_attributes>EmptyAuthorListException
+--
++ EmptyAuthorListException(String message): ctor</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>238</x><y>357</y><w>245</w><h>35</h></coordinates><panel_attributes>UserOrBookDoesNotExistException
+--
++UserOrBookDoesNotExistException(String message): ctor</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>238</x><y>280</y><w>245</w><h>35</h></coordinates><panel_attributes>EmptyBookListException
+--
++ EmptyBookListException(String message): ctor</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>336</x><y>483</y><w>77</w><h>203</h></coordinates><panel_attributes>lt=&lt;..
+&lt;&lt;throws&gt;&gt;</panel_attributes><additional_attributes>10;10;10;270;90;270</additional_attributes></element><element><id>Relation</id><coordinates><x>476</x><y>350</y><w>301</w><h>140</h></coordinates><panel_attributes>lt=&lt;..
+&lt;&lt;throws&gt;&gt;</panel_attributes><additional_attributes>10;180;50;180;50;80;360;80;360;10;410;10</additional_attributes></element><element><id>Relation</id><coordinates><x>476</x><y>322</y><w>301</w><h>70</h></coordinates><panel_attributes>lt=&lt;..
+&lt;&lt;throws&gt;&gt;</panel_attributes><additional_attributes>10;80;330;80;330;10;410;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>364</y><w>140</w><h>21</h></coordinates><panel_attributes>java.lang.Exception</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>105</x><y>294</y><w>147</w><h>84</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;100;10;10;190;10</additional_attributes></element><element><id>Relation</id><coordinates><x>133</x><y>371</y><w>119</w><h>21</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;150;10</additional_attributes></element><element><id>Relation</id><coordinates><x>105</x><y>378</y><w>147</w><h>119</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;150;190;150</additional_attributes></element><element><id>UMLClass</id><coordinates><x>588</x><y>98</y><w>224</w><h>28</h></coordinates><panel_attributes>AdminMode
+--
+main(String[] args, LibrarySystem system)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>819</x><y>0</y><w>224</w><h>28</h></coordinates><panel_attributes>LibraryInterface
+--
++ checkAdmin(): Boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>693</x><y>21</y><w>203</w><h>91</h></coordinates><panel_attributes>lt=&lt;..</panel_attributes><additional_attributes>270;10;270;60;10;60;10;110</additional_attributes></element><element><id>Relation</id><coordinates><x>693</x><y>119</y><w>203</w><h>84</h></coordinates><panel_attributes>lt=&lt;..
+adminAddBook()
+addOmnibus()
+editComponent()
+removeComponent()
+findUser()</panel_attributes><additional_attributes>270;100;270;30;10;30;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>924</x><y>28</y><w>21</w><h>175</h></coordinates><panel_attributes>lt=&lt;..</panel_attributes><additional_attributes>10;230;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>924</x><y>21</y><w>21</w><h>182</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;240</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1064</x><y>56</y><w>224</w><h>28</h></coordinates><panel_attributes>UserTypeSelection
+--
+main(String[] args, LibrarySystem system)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1064</x><y>119</y><w>224</w><h>28</h></coordinates><panel_attributes>UserMode
+--
+main(String[] args, LibrarySystem system)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>973</x><y>21</y><w>210</w><h>49</h></coordinates><panel_attributes>lt=&lt;..</panel_attributes><additional_attributes>10;10;10;30;280;30;280;50</additional_attributes></element><element><id>Relation</id><coordinates><x>1162</x><y>77</y><w>21</w><h>56</h></coordinates><panel_attributes>lt=&lt;..</panel_attributes><additional_attributes>10;10;10;60</additional_attributes></element><element><id>Relation</id><coordinates><x>973</x><y>140</y><w>210</w><h>63</h></coordinates><panel_attributes>lt=&lt;..
+borrowBook()
+returnBook()
+extendLending()</panel_attributes><additional_attributes>10;70;10;40;280;40;280;10</additional_attributes></element></diagram>

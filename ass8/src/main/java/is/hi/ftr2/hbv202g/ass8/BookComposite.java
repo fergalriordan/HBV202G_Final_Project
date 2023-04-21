@@ -25,6 +25,11 @@ public class BookComposite implements BookComponent {
     }
 
     @Override
+    public String getTitle() {
+        return "";
+    }
+
+    @Override
     public void displayInfo() {
         System.out.println("Omnibus: " + title);
         for (BookComponent bookComponent : children) {
