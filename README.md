@@ -25,6 +25,10 @@ but in the usual separate Maven `src` directories:
   - `StudentTest.java`: A class containing JUnit4 test cases for the `Student` class.
   - `UserTest.java`: A class containing JUnit4 test cases for the `User` class.
 
+# UML Class Diagram
+
+A UML class diagram outlining the architecture of the system can be found in the ass8 directory.
+
 # Running the system
 
 The files have been built and packaged in a .jar file for convenience.
