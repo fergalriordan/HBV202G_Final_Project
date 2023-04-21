@@ -122,8 +122,61 @@ public class LibrarySystem {
         String username = scanner.nextLine();
         User result = findUserByName(username);
         }
+    
+    public Boolean checkFaculty(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Username: ");
+        String username = scanner.nextLine();
+        System.out.print("Password: ");
+        String password = scanner.nextLine();
+
+        User user; 
+        try {
+            user = this.findUserByName(username);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        } 
+    
+        Boolean validPassword = checkPassword(user, password);
+
+        if (validPassword) {
+            return true;
+        }
+        else return false;
+    }
+
+    public Boolean checkStudent(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Username: ");
+        String username = scanner.nextLine();
+        System.out.print("Password: ");
+        String password = scanner.nextLine();
+        
+        User user; 
+        try {
+            user = this.findUserByName(username);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        } 
+    
+        Boolean validPassword = checkPassword(user, password);
+        // ALSO CHECK IF FEES HAVE BEEN PAID
+        Boolean feePaid = true;
+
+        if (validPassword && feePaid) {
+            return true;
+        }
+        else return false;
+    }
+
+    public static Boolean checkPassword(User user, String password) {
+        return true; // code to check the validity of the password would go here
+    }
 
     public void borrowBook(User user, Book book) {
+        System.out.println("Request approved.");	
         this.lendings.add(new Lending(book, user));
     }
 
@@ -132,11 +185,15 @@ public class LibrarySystem {
         Lending foundLending = null;
         for (Lending lending : this.lendings) {
             if (lending.getUser().equals(facultyMember) && lending.getBook().equals(book)) {
-                foundLending = lending;
+                foundLending = lending;	
             }
         }
-        // update the due date of this lending to the new due date
-        foundLending.setDueDate(newDueDate);
+        if (foundLending != null){
+            foundLending.setDueDate(newDueDate);
+            System.out.println("Due date extended.");	
+        }
+        else 
+            System.out.println("Lending not found.");
     }
 
     public void returnBook(User user, Book book) {
@@ -148,7 +205,11 @@ public class LibrarySystem {
             }
         }
         // remove the lending from the lendings list
-        this.lendings.remove(foundLending);
+        if (foundLending != null){
+            this.lendings.remove(foundLending);
+            System.out.println("Book returned.");	
+        }
+        else 
+            System.out.println("Lending not found.");
     }
-
 }

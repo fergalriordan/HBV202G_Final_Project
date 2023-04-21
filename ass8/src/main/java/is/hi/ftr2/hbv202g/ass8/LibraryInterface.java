@@ -33,7 +33,7 @@ public class LibraryInterface
                 break;
             case 2:
                 System.out.println( "\n******************************************************" );
-                UserTypeSelection.main( args );
+                UserTypeSelection.main( args, libSys );
                 break;
             default:
                 System.out.println( "Invalid choice." );

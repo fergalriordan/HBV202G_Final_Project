@@ -3,7 +3,7 @@ package is.hi.ftr2.hbv202g.ass8;
 import java.util.Scanner;
 
 public class UserTypeSelection {
-    public static void main(String[] args) {
+    public static void main(String[] args, LibrarySystem system) {
         System.out.println("\nWelcome to the Haskoli Islands Digital Library System!\n");
         System.out.println("Select an option:");
             System.out.println("    1. Faculty");
@@ -13,58 +13,31 @@ public class UserTypeSelection {
 
             switch (choice) {
                 case 1:
-                    if (checkFaculty()) {
+                    if (system.checkFaculty()) {
                         System.out.println( "\n******************************************************" );
-                        UserMode.main( args );
+                        UserMode.main( args, system );
                     }
                     else {
                         System.out.println("Invalid faculty credentials.");
+                        System.out.println("Access granted anyway as this is just a sample solution.");
+                        System.out.println( "\n******************************************************" );
+                        UserMode.main( args, system );
                     }
                     break;
                 case 2:
-                    if (checkStudent()) {
+                    if (system.checkStudent()) {
                         System.out.println( "\n******************************************************" );
-                        UserMode.main( args );
+                        UserMode.main( args, system );
                     }
                     else {
                         System.out.println("Invalid student credentials.");
+                        System.out.println("Access granted anyway as this is just a sample solution.");
+                        System.out.println( "\n******************************************************" );
+                        UserMode.main( args, system );
                     }
                     break;
                 default:
                     System.out.println("Invalid choice.");
             }
-    }
-
-
-    public static Boolean checkFaculty(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Username: ");
-        String username = scanner.nextLine();
-        System.out.print("Password: ");
-        String password = scanner.nextLine();
-
-        // check if username and password are valid...
-        if (username == null || password == null) // placeholder (doesn't work)
-            return false;
-
-        else return true;
-    }
-
-    public static Boolean checkStudent(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Username: ");
-        String username = scanner.nextLine();
-        System.out.print("Password: ");
-        String password = scanner.nextLine();
-
-        // check if username and password are valid...
-        if (username == null || password == null) // placeholder (doesn't work)
-            return false;
-
-        // ALSO CHECK IF FEES HAVE BEEN PAID
-        // if (student.feePaid == false)
-        //     return false;
-        
-        else return true;
     }
 }
