@@ -20,7 +20,7 @@ public class Book implements BookComponent {
 
     public void setAuthors(List<Author> authors) throws EmptyAuthorListException {
         if (authors.size() == 0) {
-            throw new EmptyAuthorListException("Authors cannot be null");
+            throw new EmptyAuthorListException("'Authors' field cannot be empty");
         }
         this.authors = authors;
     }
