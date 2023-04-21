@@ -7,6 +7,8 @@ public class LibraryInterface
 {
     public static void main( String[] args )
     {
+        LibrarySystem libSys = new LibrarySystem();
+
         System.out.println( "******************************************************" );
         System.out.println( "       HASKOLI ISLANDS LIBRARY SYSTEM\n");
 
@@ -22,7 +24,8 @@ public class LibraryInterface
                 if (checkAdmin()) {
                     System.out.println( "Administrator credentials verified." );
                     System.out.println( "\n******************************************************" );
-                    AdminMode.main( args );
+                    // start admin mode with the library system object
+                    AdminMode.main( args, libSys );
                 }
                 else {
                     System.out.println("Invalid administrator credentials.");
